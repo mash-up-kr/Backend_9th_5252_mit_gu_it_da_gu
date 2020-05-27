@@ -1,0 +1,35 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.7.RELEASE' // 전역 변수
+    }
+    repositories { // 라이브러리 레포
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") // 의존성?
+    }
+}
+
+// 플러그인 적용 여부
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+//
+//plugins {
+//    id 'java'
+//}
+
+group 'com.oioi'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
